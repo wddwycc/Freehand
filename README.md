@@ -1,6 +1,6 @@
 Freehand
 --
-An OSX Status Bar App for sketch  
+An OS X Status Bar App for sketch  
 
 
 ![Demo Image](https://raw.githubusercontent.com/wddwycc/Freehand/master/Images/demo.png)
