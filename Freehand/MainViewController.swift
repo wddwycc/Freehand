@@ -58,6 +58,10 @@ class MainViewController: NSViewController {
         pasteboard.writeObjects(copiesObjects)
     }
     
+    @IBAction func didPressExit(sender: AnyObject) {
+        NSApplication.sharedApplication().terminate(nil)
+        
+    }
     
 }
 extension MainViewController:ColorPlateDelegate{

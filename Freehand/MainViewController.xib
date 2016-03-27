@@ -20,8 +20,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wlC-x3-gS0">
-                    <rect key="frame" x="116" y="27" width="118" height="32"/>
-                    <buttonCell key="cell" type="push" title="复制到剪贴板" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o88-3P-e3L">
+                    <rect key="frame" x="14" y="27" width="154" height="32"/>
+                    <buttonCell key="cell" type="push" title="Copy To Clipboard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o88-3P-e3L">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                     </buttonCell>
@@ -30,8 +30,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4A-63-REK">
-                    <rect key="frame" x="265" y="27" width="66" height="32"/>
-                    <buttonCell key="cell" type="push" title="清空" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IwW-kH-WdL">
+                    <rect key="frame" x="177" y="27" width="72" height="32"/>
+                    <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IwW-kH-WdL">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                     </buttonCell>
@@ -48,6 +48,16 @@
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-wl-c6q" customClass="LineWidthPlate" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="138" y="85" width="205" height="68"/>
                 </customView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8QF-K9-z7t">
+                    <rect key="frame" x="403" y="27" width="63" height="32"/>
+                    <buttonCell key="cell" type="push" title="Exit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sRw-p7-IER">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didPressExit:" target="-2" id="S8g-iT-gkv"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="382" y="303"/>
         </customView>
