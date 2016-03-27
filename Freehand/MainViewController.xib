@@ -7,21 +7,18 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Freehand" customModuleProvider="target">
             <connections>
-                <outlet property="sampleView" destination="N08-af-lob" id="MGO-OX-lBc"/>
+                <outlet property="board" destination="h7w-5W-AQl" id="qxm-AD-7rU"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N08-af-lob">
-                    <rect key="frame" x="36" y="67" width="408" height="180"/>
-                </customView>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wlC-x3-gS0">
-                    <rect key="frame" x="182" y="13" width="118" height="32"/>
+                    <rect key="frame" x="116" y="27" width="118" height="32"/>
                     <buttonCell key="cell" type="push" title="复制到剪贴板" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o88-3P-e3L">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -30,6 +27,19 @@
                         <action selector="didPressCopyToClipboard:" target="-2" id="bZw-4I-zT1"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4A-63-REK">
+                    <rect key="frame" x="265" y="27" width="66" height="32"/>
+                    <buttonCell key="cell" type="push" title="清空" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IwW-kH-WdL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didPressClear:" target="-2" id="45c-ah-INf"/>
+                    </connections>
+                </button>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-5W-AQl" customClass="Board" customModule="Freehand" customModuleProvider="target">
+                    <rect key="frame" x="32" y="280" width="416" height="180"/>
+                </customView>
             </subviews>
         </customView>
     </objects>
