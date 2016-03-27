@@ -8,6 +8,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Freehand" customModuleProvider="target">
             <connections>
                 <outlet property="board" destination="h7w-5W-AQl" id="qxm-AD-7rU"/>
+                <outlet property="colorPlate" destination="byy-2T-l5P" id="BAt-2q-kSA"/>
+                <outlet property="lineWidthPlate" destination="ROe-wl-c6q" id="mcz-oE-cF5"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -40,7 +42,14 @@
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-5W-AQl" customClass="Board" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="32" y="254" width="416" height="180"/>
                 </customView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byy-2T-l5P" customClass="ColorPlate" customModule="Freehand" customModuleProvider="target">
+                    <rect key="frame" x="60" y="170" width="360" height="66"/>
+                </customView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-wl-c6q" customClass="LineWidthPlate" customModule="Freehand" customModuleProvider="target">
+                    <rect key="frame" x="138" y="85" width="205" height="68"/>
+                </customView>
             </subviews>
+            <point key="canvasLocation" x="382" y="303"/>
         </customView>
     </objects>
 </document>

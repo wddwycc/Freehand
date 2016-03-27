@@ -14,7 +14,7 @@ class Board: NSView {
     
     var currentStrokeWidth:CGFloat = 1
     var currentStrokeColor:NSColor = NSColor.blackColor()
-    
+
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -36,16 +36,13 @@ class Board: NSView {
         let drawGesture = NSPanGestureRecognizer(target: self, action: "handlePan:")
         self.addGestureRecognizer(drawGesture)
         self.layer!.masksToBounds = true
-        
-        
-        
     }
     
     
     func handlePan(gesture:NSPanGestureRecognizer){
         switch gesture.state{
         case .Began:
-            let stroke = Stroke(strokeWidth: 1, strokeColor: NSColor.grayColor())
+            let stroke = Stroke(strokeWidth: self.currentStrokeWidth, strokeColor: self.currentStrokeColor)
             self.currentStroke = stroke
             
             stroke.beginAt(gesture.locationInView(self), stickedLayer: self.layer!)
