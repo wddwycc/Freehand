@@ -14,6 +14,7 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.board.layer!.cornerRadius = 6
         self.board.layer!.backgroundColor = NSColor.whiteColor().CGColor
         self.board.layer!.shadowOpacity = 0.1
         self.board.layer!.shadowOffset = CGSizeMake(0,-2)

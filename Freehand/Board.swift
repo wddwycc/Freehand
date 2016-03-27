@@ -37,6 +37,8 @@ class Board: NSView {
         self.addGestureRecognizer(drawGesture)
         self.layer!.masksToBounds = true
         
+        
+        
     }
     
     
