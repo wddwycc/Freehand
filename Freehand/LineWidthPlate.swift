@@ -69,8 +69,6 @@ class LineWidthPlate: NSView {
         let panGesture = NSPanGestureRecognizer(target: self, action: #selector(LineWidthPlate.handlePan(_:)))
         self.addGestureRecognizer(panGesture)
         
-        
-        
     }
     
     func handlePan(gesture:NSPanGestureRecognizer){
@@ -91,6 +89,28 @@ class LineWidthPlate: NSView {
         default:
             break
         }
+        
+    }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        super.mouseDown(theEvent)
+        
+        let event_location = theEvent.locationInWindow
+        let local_point = self.convertPoint(event_location, fromView: nil)
+        
+        let percentage:CGFloat
+        theEvent
+        if(local_point.x <= 24){
+            percentage = 0
+        }else if(local_point.x >= 175){
+            percentage = 1
+        }else{
+            percentage = (local_point.x - 24) / (175 - 24)
+        }
+        self.updateBubbleState(percentage)
+        let targetWidth = self.minWidth + (self.maxWidth - self.minWidth) * percentage
+        self.textView.string = "\(Int(targetWidth))px"
+        self.delegate?.didChange(targetWidth)
         
     }
     
