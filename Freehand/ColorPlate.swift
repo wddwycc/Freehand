@@ -52,7 +52,7 @@ class ColorPlate: NSView {
         self.scrollView.documentView = NSView(frame: NSRect(x: 0, y: 0, width: targetWidth, height: 66))
         self.allColorViews.removeAll()
         
-        for (var i = 0; i < self.colors.count; ++i){
+        for  i in 0 ..< self.colors.count {
             let currentView = NSView(frame: NSRect(x: 20 + i * 56, y: 13, width: 40, height: 40))
             self.scrollView.addSubview(currentView)
             currentView.layer = CALayer()
@@ -63,7 +63,7 @@ class ColorPlate: NSView {
 
             
             self.allColorViews.append(currentView)
-            let clickGesture = NSClickGestureRecognizer(target: self, action: "handleClick:")
+            let clickGesture = NSClickGestureRecognizer(target: self, action: #selector(ColorPlate.handleClick(_:)))
             currentView.addGestureRecognizer(clickGesture)
             
             

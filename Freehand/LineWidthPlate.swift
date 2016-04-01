@@ -66,7 +66,7 @@ class LineWidthPlate: NSView {
         
         
         //pan gesture
-        let panGesture = NSPanGestureRecognizer(target: self, action: "handlePan:")
+        let panGesture = NSPanGestureRecognizer(target: self, action: #selector(LineWidthPlate.handlePan(_:)))
         self.addGestureRecognizer(panGesture)
         
         

@@ -33,7 +33,7 @@ class Board: NSView {
         self.layer = CALayer()
         self.layer?.backgroundColor = NSColor.whiteColor().CGColor
         //gesture
-        let drawGesture = NSPanGestureRecognizer(target: self, action: "handlePan:")
+        let drawGesture = NSPanGestureRecognizer(target: self, action: #selector(Board.handlePan(_:)))
         self.addGestureRecognizer(drawGesture)
         self.layer!.masksToBounds = true
     }
