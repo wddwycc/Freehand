@@ -61,6 +61,7 @@ class LineWidthPlate: NSView {
         self.textView.alignment = NSTextAlignment.Center
         self.textView.font = NSFont.systemFontOfSize(12)
         self.textView.backgroundColor = NSColor.clearColor()
+        self.textView.selectable = false
         self.textView.editable = false
         self.addSubview(self.textView)
         
