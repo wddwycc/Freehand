@@ -17,6 +17,7 @@
 		84713B941CA6BA32001F4A4B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84713B921CA6BA31001F4A4B /* MainViewController.swift */; };
 		84713B951CA6BA32001F4A4B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84713B931CA6BA32001F4A4B /* MainViewController.xib */; };
 		84FD34341CA7B9A000A05890 /* LineWidthPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD34331CA7B9A000A05890 /* LineWidthPlate.swift */; };
+		C3B00C9F1CAEC5400040E77C /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B00C9E1CAEC5400040E77C /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		84713B921CA6BA31001F4A4B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		84713B931CA6BA32001F4A4B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		84FD34331CA7B9A000A05890 /* LineWidthPlate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineWidthPlate.swift; sourceTree = "<group>"; };
+		C3B00C9E1CAEC5400040E77C /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				84713B771CA6B9ED001F4A4B /* AppDelegate.swift */,
-				84713B921CA6BA31001F4A4B /* MainViewController.swift */,
+				C3B00C9E1CAEC5400040E77C /* EventMonitor.swift */,
 				84713B931CA6BA32001F4A4B /* MainViewController.xib */,
+				84713B921CA6BA31001F4A4B /* MainViewController.swift */,
 				842E156C1CA78493002851D8 /* Board.swift */,
 				842E156A1CA77FAA002851D8 /* Stroke.swift */,
 				842E156E1CA7A027002851D8 /* ColorPlate.swift */,
@@ -213,6 +216,7 @@
 				84713B941CA6BA32001F4A4B /* MainViewController.swift in Sources */,
 				842E156D1CA78493002851D8 /* Board.swift in Sources */,
 				842E156F1CA7A027002851D8 /* ColorPlate.swift in Sources */,
+				C3B00C9F1CAEC5400040E77C /* EventMonitor.swift in Sources */,
 				842E156B1CA77FAA002851D8 /* Stroke.swift in Sources */,
 				84FD34341CA7B9A000A05890 /* LineWidthPlate.swift in Sources */,
 			);

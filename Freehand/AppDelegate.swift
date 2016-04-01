@@ -15,7 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     let popover = NSPopover()
-
+    
+    var eventMonitor: EventMonitor?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -27,8 +28,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         
         
-        
-        
+        self.eventMonitor = EventMonitor(mask: [.LeftMouseDownMask,.RightMouseDownMask]) { [unowned self] event in
+            if self.popover.shown {
+                self.closePopover(event)
+            }
+        }
+        eventMonitor?.start()
+
         
     }
     
@@ -45,10 +51,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
         }
+        self.eventMonitor?.start()
     }
     
     func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
+        self.eventMonitor?.stop()
     }
     
     func togglePopover(sender: AnyObject?) {
