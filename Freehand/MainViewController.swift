@@ -12,8 +12,8 @@ class MainViewController: NSViewController {
 
     @IBOutlet weak var board: Board!
     @IBOutlet weak var colorPlate: ColorPlate!
-    
     @IBOutlet weak var lineWidthPlate: LineWidthPlate!
+    
     
     
     override func viewDidLoad() {
@@ -42,7 +42,6 @@ class MainViewController: NSViewController {
         self.lineWidthPlate.delegate = self
         
         
-        // Do view setup here.
     }
     
     
@@ -60,10 +59,13 @@ class MainViewController: NSViewController {
     
     @IBAction func didPressExit(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(nil)
-        
+        self.undoManager
     }
     
 }
+
+
+// MARK: Control Delegates
 extension MainViewController:ColorPlateDelegate{
     func didSelected(color: NSColor) {
         self.board.currentStrokeColor = color

@@ -14,7 +14,8 @@ class Board: NSView {
     
     var currentStrokeWidth:CGFloat = 1
     var currentStrokeColor:NSColor = NSColor.blackColor()
-
+    
+    var strokeStack = [Stroke]()
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -49,13 +50,20 @@ class Board: NSView {
         case .Changed:
             self.currentStroke?.moveTo(gesture.locationInView(self))
         case .Ended, .Cancelled:
+            self.strokeStack.append(self.currentStroke!)
+            self.undoManager!.registerUndoWithTarget(self, selector: #selector(Board.executeUndo), object: nil)
             self.currentStroke = nil
-            
         default:
             break
         }
     }
-
+    
+    func executeUndo(){
+        self.strokeStack.last?.removeFromSuperlayer()
+        self.strokeStack.removeLast()
+    }
+    
+    
     internal func produceImage()->NSImage{
         let size = self.bounds.size
         let im = NSImage.init(size: size)
