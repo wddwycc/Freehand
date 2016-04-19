@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol LineWidthPlateDelegate{
+protocol LineWidthPlateDelegate:class{
     func didChange(width:CGFloat)
 }
 
@@ -21,7 +21,7 @@ class LineWidthPlate: NSView {
     let textView = NSTextView(frame: NSRect(x: 0, y: 0, width: 205, height: 20))
     
     
-    var delegate:LineWidthPlateDelegate?
+    weak var delegate:LineWidthPlateDelegate?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

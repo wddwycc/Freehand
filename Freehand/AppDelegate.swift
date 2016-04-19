@@ -17,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     
     var eventMonitor: EventMonitor?
-
+    
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         
@@ -34,7 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         eventMonitor?.start()
-
+        
+        
+        
+        
         
     }
     
@@ -50,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+            
         }
         self.eventMonitor?.start()
     }

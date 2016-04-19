@@ -17,7 +17,7 @@ class ColorPlate: NSView {
     let scrollView = NSScrollView()
     private var colors = Array<NSColor>()
     
-    var delegate: ColorPlateDelegate?
+    weak var delegate: ColorPlateDelegate?
     
     var allColorViews = Array<NSView>()
     
