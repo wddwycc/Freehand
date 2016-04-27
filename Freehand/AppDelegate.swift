@@ -26,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "StatusBarButtonImage")
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
+        //disable popover animation
+        popover.animates = false
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         
         
@@ -54,7 +56,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
-            
         }
         self.eventMonitor?.start()
     }
