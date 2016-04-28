@@ -61,9 +61,27 @@ class MainViewController: NSViewController {
         NSApplication.sharedApplication().terminate(nil)
         self.undoManager
     }
+    @IBAction func didPressSave(sender: AnyObject) {
+        //Desktop Path
+//        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+//        let path = paths[0]
+        //Save
+        let img = self.board.produceImage()
+        img.lockFocus()
+        let imgRep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0.0, 0.0, img.size.width, img.size.height))
+        img.unlockFocus()
+        let data = imgRep!.representationUsingType(.NSJPEGFileType, properties: [:])
+        data!.writeToFile("/Users/\(NSUserName())/Desktop/Freehand-" + "\(NSDate().description)" + ".png", atomically: false)
+        
+        
+        /*
+         NSBitmapImageRep *imgRep = [[image representations] objectAtIndex: 0];
+         NSData *data = [imgRep representationUsingType: NSPNGFileType properties: nil];
+         [data writeToFile: @"/path/to/file.png" atomically: NO];
+         */
+    }
     
 }
-
 
 // MARK: Control Delegates
 extension MainViewController:ColorPlateDelegate{
