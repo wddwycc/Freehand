@@ -99,6 +99,7 @@ class Board: NSView {
         for member in self.layer!.sublayers!{
             member.removeFromSuperlayer()
         }
+        self.strokeStack.removeAll()
     }
     
     

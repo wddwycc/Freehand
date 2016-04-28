@@ -14,6 +14,10 @@ class MainViewController: NSViewController {
     @IBOutlet weak var colorPlate: ColorPlate!
     @IBOutlet weak var lineWidthPlate: LineWidthPlate!
     
+    @IBOutlet weak var button_copy: NSButton!
+    @IBOutlet weak var button_save: NSButton!
+    @IBOutlet weak var button_clear: NSButton!
+    @IBOutlet weak var button_setting: NSButton!
     
     
     override func viewDidLoad() {
@@ -42,6 +46,16 @@ class MainViewController: NSViewController {
         self.lineWidthPlate.delegate = self
         
         
+        for member in [button_copy,button_save,button_clear,button_setting]{
+            member.layer = CALayer()
+            member.layer?.shadowOffset = CGSizeMake(0, 2)
+            member.layer?.shadowColor = NSColor.blackColor().CGColor
+            member.layer?.shadowOpacity = 0.2
+        }
+        
+        
+        
+        
     }
     
     
@@ -57,10 +71,18 @@ class MainViewController: NSViewController {
         pasteboard.writeObjects(copiesObjects)
     }
     
-    @IBAction func didPressExit(sender: AnyObject) {
-        NSApplication.sharedApplication().terminate(nil)
-        self.undoManager
+    @IBAction func didPressSetting(sender: AnyObject) {
+        let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        
+        let menu = NSMenu()
+        
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(delegate.terminateApp(_:)), keyEquivalent: "q"))
+        
+        NSMenu.popUpContextMenu(menu, withEvent: NSApp.currentEvent!, forView: self.button_setting)
     }
+    
+    
+    
     @IBAction func didPressSave(sender: AnyObject) {
         //Desktop Path
 //        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)

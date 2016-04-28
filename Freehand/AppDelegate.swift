@@ -72,5 +72,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             showPopover(sender)
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    //global
+    func terminateApp(sender:AnyObject){
+        NSApplication.sharedApplication().terminate(nil)
+        
+    }
+    
+    
+    
 }
 

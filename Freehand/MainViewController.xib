@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
@@ -8,6 +8,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Freehand" customModuleProvider="target">
             <connections>
                 <outlet property="board" destination="h7w-5W-AQl" id="qxm-AD-7rU"/>
+                <outlet property="button_clear" destination="wk5-xf-ZFT" id="1hh-dJ-5Pe"/>
+                <outlet property="button_copy" destination="js4-0t-Ntq" id="1H3-nb-H4T"/>
+                <outlet property="button_save" destination="lBH-P1-a8Q" id="R1a-Lv-IMk"/>
+                <outlet property="button_setting" destination="rsz-cr-8Cd" id="2g6-Yz-cGV"/>
                 <outlet property="colorPlate" destination="byy-2T-l5P" id="BAt-2q-kSA"/>
                 <outlet property="lineWidthPlate" destination="ROe-wl-c6q" id="mcz-oE-cF5"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -19,18 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="494"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wlC-x3-gS0">
-                    <rect key="frame" x="14" y="41" width="154" height="32"/>
-                    <buttonCell key="cell" type="push" title="Copy To Clipboard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o88-3P-e3L">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="didPressCopyToClipboard:" target="-2" id="bZw-4I-zT1"/>
-                    </connections>
-                </button>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-5W-AQl" customClass="Board" customModule="Freehand" customModuleProvider="target">
-                    <rect key="frame" x="32" y="268" width="416" height="180"/>
+                    <rect key="frame" x="32" y="268" width="416" height="194"/>
                 </customView>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byy-2T-l5P" customClass="ColorPlate" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="60" y="184" width="360" height="66"/>
@@ -38,38 +32,80 @@
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-wl-c6q" customClass="LineWidthPlate" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="138" y="99" width="205" height="68"/>
                 </customView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8QF-K9-z7t">
-                    <rect key="frame" x="403" y="41" width="63" height="32"/>
-                    <buttonCell key="cell" type="push" title="Exit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sRw-p7-IER">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="rsz-cr-8Cd">
+                    <rect key="frame" x="416" y="20" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Ir1-j6-KV9"/>
+                        <constraint firstAttribute="width" constant="44" id="Nry-qE-GKr"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_setting" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="IyP-TK-UYv">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="didPressExit:" target="-2" id="S8g-iT-gkv"/>
+                        <action selector="didPressSetting:" target="-2" id="2tj-YR-TFa"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1k-bL-jHI">
-                    <rect key="frame" x="14" y="13" width="70" height="32"/>
-                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DZ2-0c-hrN">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="wk5-xf-ZFT">
+                    <rect key="frame" x="353" y="20" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="TRD-Qq-vev"/>
+                        <constraint firstAttribute="width" constant="44" id="qel-e9-RJh"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_clear" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="WS9-QI-Cfh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="didPressSave:" target="-2" id="Kpq-ff-DdH"/>
+                        <action selector="didPressClear:" target="-2" id="tOn-OF-BuV"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4A-63-REK">
-                    <rect key="frame" x="179" y="42" width="72" height="32"/>
-                    <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IwW-kH-WdL">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="js4-0t-Ntq">
+                    <rect key="frame" x="20" y="20" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="cvB-MK-0kL"/>
+                        <constraint firstAttribute="height" constant="44" id="eue-Iz-y3P"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_copy" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="OZa-z0-BHT">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="didPressClear:" target="-2" id="45c-ah-INf"/>
+                        <action selector="didPressCopyToClipboard:" target="-2" id="1Zo-FA-W2F"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="lBH-P1-a8Q">
+                    <rect key="frame" x="82" y="20" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="BRY-oQ-c7v"/>
+                        <constraint firstAttribute="width" constant="44" id="mo4-HO-lVb"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_download" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="v98-Lk-Or7">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didPressSave:" target="-2" id="mIj-Hf-8Pt"/>
                     </connections>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstItem="wk5-xf-ZFT" firstAttribute="bottom" secondItem="rsz-cr-8Cd" secondAttribute="bottom" id="2qd-Gd-TKz"/>
+                <constraint firstAttribute="bottom" secondItem="js4-0t-Ntq" secondAttribute="bottom" constant="20" id="4XJ-W9-ayN"/>
+                <constraint firstAttribute="trailing" secondItem="rsz-cr-8Cd" secondAttribute="trailing" constant="20" id="9f3-C4-EdJ"/>
+                <constraint firstItem="lBH-P1-a8Q" firstAttribute="bottom" secondItem="js4-0t-Ntq" secondAttribute="bottom" id="EUj-fm-91u"/>
+                <constraint firstItem="js4-0t-Ntq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="RV8-nE-uWY"/>
+                <constraint firstAttribute="bottom" secondItem="rsz-cr-8Cd" secondAttribute="bottom" constant="20" id="UWl-nW-0ly"/>
+                <constraint firstItem="rsz-cr-8Cd" firstAttribute="leading" secondItem="wk5-xf-ZFT" secondAttribute="trailing" constant="19" id="ikn-rC-IS7"/>
+                <constraint firstItem="lBH-P1-a8Q" firstAttribute="leading" secondItem="js4-0t-Ntq" secondAttribute="trailing" constant="18" id="jfw-S2-19G"/>
+            </constraints>
             <point key="canvasLocation" x="382" y="310"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_clear" width="44" height="44"/>
+        <image name="icon_copy" width="44" height="44"/>
+        <image name="icon_download" width="44" height="44"/>
+        <image name="icon_setting" width="44" height="44"/>
+    </resources>
 </document>
