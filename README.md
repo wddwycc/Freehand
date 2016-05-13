@@ -10,10 +10,10 @@ Download Here: [Freehand](https://github.com/wddwycc/Freehand/releases)
 - [x] Stroke Width/Color Option
 - [x] CopyToClipboard & SaveToDesktop
 - [x] Support Undo
+- [x] Save Path Option
 
 ### Todo
 - [ ] Canvas Size Option
-- [ ] Save Path Option
 
 
 Good option to play 你画我猜>_<

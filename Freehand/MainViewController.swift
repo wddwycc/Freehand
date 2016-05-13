@@ -98,7 +98,6 @@ class MainViewController: NSViewController {
         let data = imgRep!.representationUsingType(.NSJPEGFileType, properties: [:])
         data!.writeToFile(appDelegate.savingPath! + "\(NSDate().description)" + ".png", atomically: false)
         
-        
     }
     
 }
