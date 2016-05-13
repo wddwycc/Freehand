@@ -16,6 +16,8 @@
 		84713B881CA6B9ED001F4A4B /* FreehandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84713B871CA6B9ED001F4A4B /* FreehandTests.swift */; };
 		84713B941CA6BA32001F4A4B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84713B921CA6BA31001F4A4B /* MainViewController.swift */; };
 		84713B951CA6BA32001F4A4B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84713B931CA6BA32001F4A4B /* MainViewController.xib */; };
+		849586741CE59C1B00906A4C /* ChangePathWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849586721CE59C1B00906A4C /* ChangePathWindowController.swift */; };
+		849586751CE59C1B00906A4C /* ChangePathWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849586731CE59C1B00906A4C /* ChangePathWindowController.xib */; };
 		84FD34341CA7B9A000A05890 /* LineWidthPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD34331CA7B9A000A05890 /* LineWidthPlate.swift */; };
 		C3B00C9F1CAEC5400040E77C /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B00C9E1CAEC5400040E77C /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		84713B891CA6B9ED001F4A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84713B921CA6BA31001F4A4B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		84713B931CA6BA32001F4A4B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		849586721CE59C1B00906A4C /* ChangePathWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePathWindowController.swift; sourceTree = "<group>"; };
+		849586731CE59C1B00906A4C /* ChangePathWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePathWindowController.xib; sourceTree = "<group>"; };
 		84FD34331CA7B9A000A05890 /* LineWidthPlate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineWidthPlate.swift; sourceTree = "<group>"; };
 		C3B00C9E1CAEC5400040E77C /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,7 @@
 				842E156A1CA77FAA002851D8 /* Stroke.swift */,
 				842E156E1CA7A027002851D8 /* ColorPlate.swift */,
 				84FD34331CA7B9A000A05890 /* LineWidthPlate.swift */,
+				849586761CE59C2900906A4C /* Legacy */,
 				84713B791CA6B9ED001F4A4B /* Assets.xcassets */,
 				84713B7B1CA6B9ED001F4A4B /* MainMenu.xib */,
 				84713B7E1CA6B9ED001F4A4B /* Info.plist */,
@@ -109,6 +114,15 @@
 				84713B891CA6B9ED001F4A4B /* Info.plist */,
 			);
 			path = FreehandTests;
+			sourceTree = "<group>";
+		};
+		849586761CE59C2900906A4C /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				849586721CE59C1B00906A4C /* ChangePathWindowController.swift */,
+				849586731CE59C1B00906A4C /* ChangePathWindowController.xib */,
+			);
+			name = Legacy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,7 @@
 			files = (
 				84713B7A1CA6B9ED001F4A4B /* Assets.xcassets in Resources */,
 				84713B951CA6BA32001F4A4B /* MainViewController.xib in Resources */,
+				849586751CE59C1B00906A4C /* ChangePathWindowController.xib in Resources */,
 				84713B7D1CA6B9ED001F4A4B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +232,7 @@
 				84713B941CA6BA32001F4A4B /* MainViewController.swift in Sources */,
 				842E156D1CA78493002851D8 /* Board.swift in Sources */,
 				842E156F1CA7A027002851D8 /* ColorPlate.swift in Sources */,
+				849586741CE59C1B00906A4C /* ChangePathWindowController.swift in Sources */,
 				C3B00C9F1CAEC5400040E77C /* EventMonitor.swift in Sources */,
 				842E156B1CA77FAA002851D8 /* Stroke.swift in Sources */,
 				84FD34341CA7B9A000A05890 /* LineWidthPlate.swift in Sources */,

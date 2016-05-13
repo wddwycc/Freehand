@@ -12,7 +12,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    
+    lazy var changePathWindowController: ChangePathWindowController = ChangePathWindowController(windowNibName: "ChangePathWindowController")
+    
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     let popover = NSPopover()
     
@@ -40,7 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         
-        
+        // set default saving path
+        if(self.savingPath == nil){
+            self.savingPath = "/Users/\(NSUserName())/Desktop"
+        }
         
     }
     
@@ -82,9 +87,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //global
     func terminateApp(sender:AnyObject){
         NSApplication.sharedApplication().terminate(nil)
-        
     }
     
+    
+    // TODO: change path
+    func presentPathChangerWindow(){
+//        self.changePathWindowController.showWindow(self)
+//        NSApp.activateIgnoringOtherApps(true)
+//        self.changePathWindowController.window!.makeKeyAndOrderFront(nil)
+        
+        self.togglePopover(nil)
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.beginWithCompletionHandler { (result) in
+            if(result == NSFileHandlingPanelOKButton){
+                let urls = panel.URLs
+                let path = urls[0].path!
+                self.savingPath = path
+            }
+        }
+    }
+    
+    var savingPath:String?{
+        get{
+            let path = NSUserDefaults.standardUserDefaults().stringForKey("SavingPath")! + "/"
+            return path
+        }
+        set(newValue){
+            NSUserDefaults.standardUserDefaults().setValue(newValue! + "/", forKey: "SavingPath")
+        }
+    }
     
     
 }

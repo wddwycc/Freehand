@@ -75,8 +75,9 @@ class MainViewController: NSViewController {
         let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
         
         let menu = NSMenu()
-        
+        menu.addItem(NSMenuItem(title: "Change Save Path", action: #selector(delegate.presentPathChangerWindow), keyEquivalent: "m"))
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(delegate.terminateApp(_:)), keyEquivalent: "q"))
+        
         
         NSMenu.popUpContextMenu(menu, withEvent: NSApp.currentEvent!, forView: self.button_setting)
     }
@@ -88,19 +89,16 @@ class MainViewController: NSViewController {
 //        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)
 //        let path = paths[0]
         //Save
+        let appDelegate = NSApplication.sharedApplication().delegate! as! AppDelegate
+        
         let img = self.board.produceImage()
         img.lockFocus()
         let imgRep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0.0, 0.0, img.size.width, img.size.height))
         img.unlockFocus()
         let data = imgRep!.representationUsingType(.NSJPEGFileType, properties: [:])
-        data!.writeToFile("/Users/\(NSUserName())/Desktop/Freehand-" + "\(NSDate().description)" + ".png", atomically: false)
+        data!.writeToFile(appDelegate.savingPath! + "\(NSDate().description)" + ".png", atomically: false)
         
         
-        /*
-         NSBitmapImageRep *imgRep = [[image representations] objectAtIndex: 0];
-         NSData *data = [imgRep representationUsingType: NSPNGFileType properties: nil];
-         [data writeToFile: @"/path/to/file.png" atomically: NO];
-         */
     }
     
 }
