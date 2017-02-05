@@ -175,7 +175,7 @@
 				TargetAttributes = {
 					84713B731CA6B9ED001F4A4B = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = X2XD45Z456;
+						DevelopmentTeam = QWG6N6943Q;
 					};
 					84713B821CA6B9ED001F4A4B = {
 						CreatedOnToolsVersion = 7.2;
@@ -356,6 +356,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QWG6N6943Q;
 				INFOPLIST_FILE = Freehand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monk-studio.Freehand";
@@ -371,6 +372,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QWG6N6943Q;
 				INFOPLIST_FILE = Freehand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monk-studio.Freehand";
