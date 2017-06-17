@@ -33,9 +33,9 @@ class MainViewController: NSViewController {
 
 
     self.board.layer!.cornerRadius = 6
-    self.board.layer!.backgroundColor = NSColor.whiteColor().CGColor
+    self.board.layer!.backgroundColor = NSColor.white.cgColor
     self.board.layer!.shadowOpacity = 0.1
-    self.board.layer!.shadowOffset = CGSizeMake(0,-2)
+    self.board.layer!.shadowOffset = CGSize(width: 0,height: -2)
     self.board.layer!.shadowRadius = 4
     self.board.currentStrokeColor = colors[0]
 
@@ -47,56 +47,50 @@ class MainViewController: NSViewController {
 
 
     for member in [button_copy,button_save,button_clear,button_setting]{
-      member.layer = CALayer()
-      member.layer?.shadowOffset = CGSizeMake(0, 2)
-      member.layer?.shadowColor = NSColor.blackColor().CGColor
-      member.layer?.shadowOpacity = 0.2
+      member?.layer = CALayer()
+      member?.layer?.shadowOffset = CGSize(width: 0, height: 2)
+      member?.layer?.shadowColor = NSColor.black.cgColor
+      member?.layer?.shadowOpacity = 0.2
     }
-
-
-
-
   }
 
 
-
-  @IBAction func didPressClear(sender: AnyObject) {
+  @IBAction func didPressClear(_ sender: AnyObject) {
     self.board.clearboard()
   }
 
-  @IBAction func didPressCopyToClipboard(sender: AnyObject) {
-    let pasteboard = NSPasteboard.generalPasteboard()
+  @IBAction func didPressCopyToClipboard(_ sender: AnyObject) {
+    let pasteboard = NSPasteboard.general()
     pasteboard.clearContents()
     let copiesObjects = [self.board.produceImage()]
     pasteboard.writeObjects(copiesObjects)
   }
 
-  @IBAction func didPressSetting(sender: AnyObject) {
-    let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
+  @IBAction func didPressSetting(_ sender: AnyObject) {
+    let delegate = NSApplication.shared().delegate as! AppDelegate
 
     let menu = NSMenu()
     menu.addItem(NSMenuItem(title: "Change Save Path", action: #selector(delegate.presentPathChangerWindow), keyEquivalent: "m"))
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(delegate.terminateApp(_:)), keyEquivalent: "q"))
 
-
-    NSMenu.popUpContextMenu(menu, withEvent: NSApp.currentEvent!, forView: self.button_setting)
+    NSMenu.popUpContextMenu(menu, with: NSApp.currentEvent!, for: self.button_setting)
   }
 
 
 
-  @IBAction func didPressSave(sender: AnyObject) {
+  @IBAction func didPressSave(_ sender: AnyObject) {
     //Desktop Path
     //        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)
     //        let path = paths[0]
     //Save
-    let appDelegate = NSApplication.sharedApplication().delegate! as! AppDelegate
+    let appDelegate = NSApplication.shared().delegate! as! AppDelegate
 
     let img = self.board.produceImage()
     img.lockFocus()
     let imgRep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0.0, 0.0, img.size.width, img.size.height))
     img.unlockFocus()
-    let data = imgRep!.representationUsingType(.NSJPEGFileType, properties: [:])
-    data!.writeToFile(appDelegate.savingPath! + "\(NSDate().description)" + ".png", atomically: false)
+    let data = imgRep!.representation(using: .JPEG, properties: [:])
+    try? data!.write(to: URL(fileURLWithPath: appDelegate.savingPath! + "\(Date().description)" + ".png"), options: [])
 
   }
 
@@ -104,12 +98,12 @@ class MainViewController: NSViewController {
 
 // MARK: Control Delegates
 extension MainViewController:ColorPlateDelegate{
-  func didSelected(color: NSColor) {
+  func didSelected(_ color: NSColor) {
     self.board.currentStrokeColor = color
   }
 }
 extension MainViewController:LineWidthPlateDelegate{
-  func didChange(width: CGFloat) {
+  func didChange(_ width: CGFloat) {
     self.board.currentStrokeWidth = width
   }
 }

@@ -13,7 +13,7 @@ class Board: NSView {
     var currentStroke:Stroke?
     
     var currentStrokeWidth:CGFloat = 1
-    var currentStrokeColor:NSColor = NSColor.blackColor()
+    var currentStrokeColor:NSColor = NSColor.black
     
     var strokeStack = [Stroke]()
     
@@ -32,7 +32,7 @@ class Board: NSView {
     
     func setup(){
         self.layer = CALayer()
-        self.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        self.layer?.backgroundColor = NSColor.white.cgColor
         //gesture
         let drawGesture = NSPanGestureRecognizer(target: self, action: #selector(Board.handlePan(_:)))
         self.addGestureRecognizer(drawGesture)
@@ -40,18 +40,18 @@ class Board: NSView {
     }
     
     
-    func handlePan(gesture:NSPanGestureRecognizer){
+    func handlePan(_ gesture:NSPanGestureRecognizer){
         switch gesture.state{
-        case .Began:
+        case .began:
             let stroke = Stroke(strokeWidth: self.currentStrokeWidth, strokeColor: self.currentStrokeColor)
             self.currentStroke = stroke
             
-            stroke.beginAt(gesture.locationInView(self), stickedLayer: self.layer!)
-        case .Changed:
-            self.currentStroke?.moveTo(gesture.locationInView(self))
-        case .Ended, .Cancelled:
+            stroke.beginAt(gesture.location(in: self), stickedLayer: self.layer!)
+        case .changed:
+            self.currentStroke?.moveTo(gesture.location(in: self))
+        case .ended, .cancelled:
             self.strokeStack.append(self.currentStroke!)
-            self.undoManager!.registerUndoWithTarget(self, selector: #selector(Board.executeUndo), object: nil)
+            self.undoManager!.registerUndo(withTarget: self, selector: #selector(Board.executeUndo), object: nil)
             self.currentStroke = nil
         default:
             break
@@ -83,11 +83,11 @@ class Board: NSView {
         im.lockFocus()
         
         let rect = NSMakeRect(0, 0, size.width, size.height)
-        let ctx = NSGraphicsContext.currentContext()?.CGContext
-        CGContextClearRect(ctx, rect)
-        CGContextSetFillColorWithColor(ctx, NSColor.clearColor().CGColor)
-        self.layer!.renderInContext(ctx!)
-        CGContextFillRect(ctx, rect)
+        let ctx = NSGraphicsContext.current()?.cgContext
+        ctx?.clear(rect)
+        ctx?.setFillColor(NSColor.clear.cgColor)
+        self.layer!.render(in: ctx!)
+        ctx?.fill(rect)
         
         im.unlockFocus()
         

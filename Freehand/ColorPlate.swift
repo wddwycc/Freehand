@@ -10,12 +10,12 @@ import Cocoa
 
 //height: 66 width: 16*(n-1) + 40*n + 24*2
 protocol ColorPlateDelegate:class{
-    func didSelected(color:NSColor)
+    func didSelected(_ color:NSColor)
 }
 
 class ColorPlate: NSView {
     let scrollView = NSScrollView()
-    private var colors = Array<NSColor>()
+    fileprivate var colors = Array<NSColor>()
     
     weak var delegate: ColorPlateDelegate?
     
@@ -46,7 +46,7 @@ class ColorPlate: NSView {
     }
     
     
-    internal func setupColors(colors:Array<NSColor>){
+    internal func setupColors(_ colors:Array<NSColor>){
         self.colors = colors
         let targetWidth = 16 * (colors.count - 1) + 40 * (colors.count) + 24*2
         self.scrollView.documentView = NSView(frame: NSRect(x: 0, y: 0, width: targetWidth, height: 66))
@@ -57,7 +57,7 @@ class ColorPlate: NSView {
             self.scrollView.addSubview(currentView)
             currentView.layer = CALayer()
             currentView.layer!.cornerRadius = 12
-            currentView.layer!.backgroundColor = self.colors[i].CGColor
+            currentView.layer!.backgroundColor = self.colors[i].cgColor
             currentView.layer!.shadowRadius = 4
             currentView.layer!.shadowOffset = NSSize(width: 0, height: -4)
 
@@ -76,13 +76,13 @@ class ColorPlate: NSView {
         }
         
     }
-    func handleClick(gesture:NSClickGestureRecognizer){
-        if(gesture.state == NSGestureRecognizerState.Ended){
+    func handleClick(_ gesture:NSClickGestureRecognizer){
+        if(gesture.state == NSGestureRecognizerState.ended){
             for member in self.allColorViews{
                 member.layer!.shadowOpacity = 0
             }
             gesture.view!.layer!.shadowOpacity = 0.4
-            self.delegate?.didSelected(NSColor(CGColor: gesture.view!.layer!.backgroundColor!)!)
+            self.delegate?.didSelected(NSColor(cgColor: gesture.view!.layer!.backgroundColor!)!)
         }
     }
     

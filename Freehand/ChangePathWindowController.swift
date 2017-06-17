@@ -21,20 +21,20 @@ class ChangePathWindowController: NSWindowController {
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
-    @IBAction func didPressChoose(sender: AnyObject) {
+    @IBAction func didPressChoose(_ sender: AnyObject) {
         let panel = NSOpenPanel()
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
-        panel.beginWithCompletionHandler { (result) in
+        panel.begin { (result) in
             if(result == NSFileHandlingPanelOKButton){
-                let urls = panel.URLs
-                let path = urls[0].path!
+                let urls = panel.urls
+                let path = urls[0].path
                 self.textField.stringValue = path
             }
         }
     }
     
-    @IBAction func didPressConfirm(sender: AnyObject) {
+    @IBAction func didPressConfirm(_ sender: AnyObject) {
         self.window!.close()
         
     }
