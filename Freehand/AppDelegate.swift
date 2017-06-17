@@ -21,13 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     if let button = statusItem.button {
-      button.image = NSImage(named: "StatusBarButtonImage")
+      button.image = NSImage(named: "_icon_status_bar")
       button.action = #selector(AppDelegate.togglePopover(_:))
     }
     //disable popover animation
     popover.animates = false
     popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
-
 
     self.eventMonitor = EventMonitor(mask: [.leftMouseDown,.rightMouseDown]) { [unowned self] event in
       if self.popover.isShown {

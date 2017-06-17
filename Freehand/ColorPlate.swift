@@ -69,7 +69,7 @@ class ColorPlate: NSView {
 
       //default: first
       if(i == 0){
-        currentView.layer!.shadowOpacity = 0.4
+        currentView.layer!.shadowOpacity = 0.2
         self.delegate?.plateDidSelected(self.colors.first!)
       }
 
@@ -81,7 +81,7 @@ class ColorPlate: NSView {
       for member in self.allColorViews{
         member.layer!.shadowOpacity = 0
       }
-      gesture.view!.layer!.shadowOpacity = 0.4
+      gesture.view!.layer!.shadowOpacity = 0.2
       self.delegate?.plateDidSelected(NSColor(cgColor: gesture.view!.layer!.backgroundColor!)!)
     }
   }

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Freehand" customModuleProvider="target">
@@ -13,6 +14,7 @@
                 <outlet property="button_save" destination="lBH-P1-a8Q" id="R1a-Lv-IMk"/>
                 <outlet property="button_setting" destination="rsz-cr-8Cd" id="2g6-Yz-cGV"/>
                 <outlet property="colorPlate" destination="byy-2T-l5P" id="BAt-2q-kSA"/>
+                <outlet property="label_prompt" destination="c7o-x1-TqB" id="gc2-HY-69J"/>
                 <outlet property="lineWidthPlate" destination="ROe-wl-c6q" id="mcz-oE-cF5"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -25,12 +27,15 @@
             <subviews>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-5W-AQl" customClass="Board" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="32" y="268" width="416" height="194"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byy-2T-l5P" customClass="ColorPlate" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="60" y="184" width="360" height="66"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-wl-c6q" customClass="LineWidthPlate" customModule="Freehand" customModuleProvider="target">
                     <rect key="frame" x="138" y="99" width="205" height="68"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="rsz-cr-8Cd">
                     <rect key="frame" x="416" y="20" width="44" height="44"/>
@@ -88,11 +93,24 @@
                         <action selector="didPressSave:" target="-2" id="mIj-Hf-8Pt"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7o-x1-TqB">
+                    <rect key="frame" x="198" y="33" width="84" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="MVm-d8-29E"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="9cJ-OP-Wp8">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="wk5-xf-ZFT" firstAttribute="bottom" secondItem="rsz-cr-8Cd" secondAttribute="bottom" id="2qd-Gd-TKz"/>
                 <constraint firstAttribute="bottom" secondItem="js4-0t-Ntq" secondAttribute="bottom" constant="20" id="4XJ-W9-ayN"/>
                 <constraint firstAttribute="trailing" secondItem="rsz-cr-8Cd" secondAttribute="trailing" constant="20" id="9f3-C4-EdJ"/>
+                <constraint firstItem="c7o-x1-TqB" firstAttribute="centerY" secondItem="lBH-P1-a8Q" secondAttribute="centerY" id="ATB-8g-HtB"/>
+                <constraint firstItem="c7o-x1-TqB" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="EJE-Ab-OPe"/>
                 <constraint firstItem="lBH-P1-a8Q" firstAttribute="bottom" secondItem="js4-0t-Ntq" secondAttribute="bottom" id="EUj-fm-91u"/>
                 <constraint firstItem="js4-0t-Ntq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="RV8-nE-uWY"/>
                 <constraint firstAttribute="bottom" secondItem="rsz-cr-8Cd" secondAttribute="bottom" constant="20" id="UWl-nW-0ly"/>

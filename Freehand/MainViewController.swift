@@ -19,6 +19,8 @@ class MainViewController: NSViewController {
   @IBOutlet weak var button_clear: NSButton!
   @IBOutlet weak var button_setting: NSButton!
 
+  @IBOutlet weak var label_prompt: NSTextField!
+  
 
   override func viewDidLoad() {
     super.viewDidLoad()
