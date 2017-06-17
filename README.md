@@ -1,5 +1,8 @@
 Freehand
 --
+
+![Swift](https://img.shields.io/badge/Swift-3-orange.svg)
+
 An OS X Status Bar App for sketch  
 Download Here: [Freehand](https://github.com/wddwycc/Freehand/releases)
 
@@ -8,19 +11,17 @@ Download Here: [Freehand](https://github.com/wddwycc/Freehand/releases)
 
 ### Feature
 - [x] Stroke Width/Color Option
-- [x] CopyToClipboard & SaveToDesktop
-- [x] Support Undo
-- [x] Save Path Option
-
-### Todo
-- [ ] Canvas Size Option
+- [x] Copy To Clipboard & Save To Desktop
+- [x] Undo
+- [x] Custom Save Path
 
 
-Good option to play 你画我猜>_<
 
-Contact Me
+Find Me
 ---
-wddwyss@gmail.com
+
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/wddwycc)
+
 
 
 

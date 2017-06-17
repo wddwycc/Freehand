@@ -79,26 +79,20 @@ class MainViewController: NSViewController {
 
 
   @IBAction func didPressSave(_ sender: AnyObject) {
-    //Desktop Path
-    //        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-    //        let path = paths[0]
-    //Save
     let appDelegate = NSApplication.shared().delegate! as! AppDelegate
-
     let img = self.board.produceImage()
     img.lockFocus()
     let imgRep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0.0, 0.0, img.size.width, img.size.height))
     img.unlockFocus()
     let data = imgRep!.representation(using: .JPEG, properties: [:])
     try? data!.write(to: URL(fileURLWithPath: appDelegate.savingPath! + "\(Date().description)" + ".png"), options: [])
-
   }
 
 }
 
 // MARK: Control Delegates
 extension MainViewController:ColorPlateDelegate{
-  func didSelected(_ color: NSColor) {
+  func plateDidSelected(_ color: NSColor) {
     self.board.currentStrokeColor = color
   }
 }

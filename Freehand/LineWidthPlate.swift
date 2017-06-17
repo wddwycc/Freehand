@@ -97,7 +97,6 @@ class LineWidthPlate: NSView {
     default:
       break
     }
-
   }
 
   override func mouseDown(with theEvent: NSEvent) {
@@ -118,10 +117,7 @@ class LineWidthPlate: NSView {
     let targetWidth = self.minWidth + (self.maxWidth - self.minWidth) * percentage
     self.textView.string = "\(Int(targetWidth))px"
     self.delegate?.didChange(targetWidth)
-
   }
-
-
 
   func updateBubbleState(_ percentage:CGFloat){
     //min: 6, 6
@@ -130,13 +126,10 @@ class LineWidthPlate: NSView {
 
 
     let centerX = 24 + (175 - 24) * percentage
-
     let radius = 3 + (10 - 3) * percentage
-
     self.bubble.frame = NSRect(x: centerX - radius, y: 35 - radius, width: radius * 2, height: radius * 2)
-
     self.bubble.cornerRadius = radius
   }
-
-
+  
+  
 }

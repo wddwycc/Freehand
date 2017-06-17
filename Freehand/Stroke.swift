@@ -38,6 +38,6 @@ class Stroke:CAShapeLayer{
   func sync(){
     self.path = self.strokePath
   }
-
+  
 }
 
