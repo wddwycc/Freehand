@@ -1,19 +1,20 @@
 Freehand
 --
-
+![Version](https://img.shields.io/badge/Version-0.1.3-green.svg)
 ![Swift](https://img.shields.io/badge/Swift-3-orange.svg)
-
-An OS X Status Bar App for sketch  
-Download Here: [Freehand](https://github.com/wddwycc/Freehand/releases)
+[![Swift](https://img.shields.io/badge/Download-here-orange.svg)](https://github.com/wddwycc/Freehand/releases)
 
 
-![Demo Image](https://raw.githubusercontent.com/wddwycc/Freehand/master/Images/demo.png)
+A MacOS Status Bar App for quick sketch
+
 
 ### Feature
-- [x] Stroke Width/Color Option
-- [x] Copy To Clipboard & Save To Desktop
-- [x] Undo
-- [x] Custom Save Path
+- [x] Draw with certain color and stroke width
+- [x] Copy your drawing To clipboard or save to target path
+- [x] Support undo with `cmd + z`
+
+
+![Demo Image](https://raw.githubusercontent.com/wddwycc/Freehand/master/_images/demo.png)
 
 
 
